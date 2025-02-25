@@ -1,3 +1,3 @@
 # Tugas Pertemuan 3
 
-Link: 
+Link: https://dikdns.github.io/upi-rl210/pertemuan-3/
