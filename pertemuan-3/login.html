@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - ONE PIECE</title>
+    <meta name="description" content="Login to ONE PIECE" />
+  </head>
+  <body bgcolor="#ffffff">
+    <table width="100%" cellpadding="16">
+      <tr>
+        <td>
+          <table width="100%" bgcolor="#f0f0f0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td
+                      height="200"
+                      bgcolor="#000000"
+                      align="center"
+                      valign="middle"
+                    >
+                      <font color="white" size="7">ONE PIECE - Login</font>
+                    </td>
+                  </tr>
+                </table>
+
+                <table width="100%" cellpadding="32">
+                  <tr>
+                    <td align="center">
+                      <form action="#" method="post">
+                        <table cellpadding="8">
+                          <tr>
+                            <td><label for="username">Username:</label></td>
+                            <td>
+                              <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                required
+                                minlength="3"
+                                maxlength="20"
+                                pattern="[A-Za-z0-9]+"
+                                title="Username must be between 3-20 characters and can only contain letters and numbers"
+                              />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><label for="password">Password:</label></td>
+                            <td>
+                              <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                required
+                                minlength="8"
+                                title="Password must be at least 8 characters long"
+                              />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2" align="center">
+                              <button type="submit">Login</button>
+                            </td>
+                          </tr>
+                        </table>
+                      </form>
+                      <p>
+                        Don't have an account?
+                        <a href="./register.html">Register here</a>
+                      </p>
+                      <p>
+                        <a href="./index.html">Back to Home</a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
