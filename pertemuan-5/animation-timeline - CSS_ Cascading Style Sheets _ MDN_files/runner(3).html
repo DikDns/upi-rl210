@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!-- saved from url=(1569)https://96d2cae1b3b22e63c6e57cfdf081c0c6bcf16a4e.mdnplay.dev/en-US/docs/Web/CSS/animation-timeline/runner.html?state=dVbbbhtHDP0VYoECSSCtrAZGi7Vr1EjcC9DmoWrRPuiFmqV2Gc9lzeFs7Ab%2B92L2Isl2%2FTYaDs%2BQh%2BfM6mthYiyqooxp95mMwtetB%2FjCtbYVvD876%2B4v8kZL3LRawbeHHYfSsK%2FgDDBpGLZ2aG4bCcnXSxNskApqoq5jf3ux9Y9bv%2FWlCV7JP73lu%2FNvJsT75bT1%2FevXDDjdYuvb9YiyD16Xe3RsHyq4Fka7gF%2FI9qRscAERfVxGEt7PyU8SI%2F9LFbwXcgfsF9F1eT7GASx7Ws5krMvzQ2Po2aFy8GP24edS2VHOqqBn%2BvLm7UU%2BfnrAo6MKsOsI5eJpaM%2FWLl2oqYJd0PZZtE4yLCpYu3gBq3fwEwvtwz0I3SUWiqAtR9CQ0e0DaEvHdHi3mmr%2F8ZYe9oKO4lTFRIAEN64AQoeG9aGCs4txQwV93AdxFUSDlv55c%2FZ2CD2O7Wl4kbp%2BNXV9SH3c%2BmJRtOpsURWXNfdgLMb4w7aYhLMtrvLRy3Z99WHcuVy166vx0svuarzityDkgLuYHNRZiRBZAR3pAkzwkYySJgGsueNo2DdAlnUBkWqoAxCn6EI91UuuCwLsDddcJ6%2BQFCzughCQjvgEDhuPgJbvEpbwB8cU4S5xhB6FhzW6ES%2Fv3iUCrku4UbDcJIuQrEVngnQk4NBSTFgjdBLYg%2BUdSQCfvBnLv0uoIxh7JamTm64p4cayPgGrufEcIzswghF06CN3YcMuiHKEPaWGZ8Cee3QpAipgahKVA7Gr7jnFH0daqc4ZJIIT3UORAw2kJWyoHs7IwEcnpJzcwAX0yXZJUWnEO5RZwp9BNMjEZUa0FmGPhi1HHroo4RpIUMGjy5VaMpoiJPE4oWXmTfA9Wnu6KuET79qp1AOV4Dla6MkeKhwByxFsgw1rJmqu6DifHe%2FIZ%2FpRTIKeFQnIkiOvyZXw%2B4uDI%2BL%2FnQaTBHecZTlGBiYHgrM2n8%2Fh1Bvz033w9ra4ulzV3D8f2vWJ3j07oASapOMI1FBUPI4IyRN66FoUUsFZ3qaEazFpRDNJ8lTHak3wTco2SMIRpA3eZBWNMD3ZEjaTBee82ZLz%2FM1A2XUWHXjKDmkEe64R2MOeZKIpy%2BrnKSBJZdDT6Cgf%2FGxZa1OEIIYBDWAyg6DSscLXLHriTqh5tmyWxhA9me0gpE6QYv6eqXDULPqJqbk56JKkOHdyfABK%2BJhvTlaFDVMEi5mvPO5pIkejcn001K%2F%2BMKpsgOkRcB1JzaRDPiXOj1cWNZdw05AepzsUMxsWjUkuos%2F8Dg7IGSNiNGRJBiZK%2BETZXKQnut%2BPXwtzospZcMWi%2BJz%2FUBSLIoopqmJFfvnXZlUHE1d%2F0271YbNZvfw8rorH%2FwA%3D -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+          /* Legacy css to support existing live samples */
+          body {
+            padding: 0;
+            margin: 0;
+          }
+
+          svg:not(:root) {
+            display: block;
+          }
+
+          .playable-code {
+            background-color: #f4f7f8;
+            border: none;
+            border-left: 6px solid #558abb;
+            border-width: medium medium medium 6px;
+            color: #4d4e53;
+            height: 100px;
+            width: 90%;
+            padding: 10px 10px 0;
+          }
+
+          .playable-canvas {
+            border: 1px solid #4d4e53;
+            border-radius: 2px;
+          }
+
+          .playable-buttons {
+            text-align: right;
+            width: 90%;
+            padding: 5px 10px 5px 26px;
+          }
+        </style>
+        
+        <style id="css-output">
+          .subject {
+  width: 300px;
+  height: 200px;
+  margin: 0 auto;
+  background-color: deeppink;
+}
+
+.content {
+  width: 75%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+p,
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.animation {
+  animation-timeline: view();
+
+  animation-name: appear;
+  animation-fill-mode: both;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+        </style>
+
+        <script>
+          const consoleProxy = new Proxy(console, {
+            get(target, prop) {
+              if (typeof target[prop] === "function") {
+                return (...args) => {
+                  try {
+                    window.parent.postMessage(
+                      { typ: "console", prop, args },
+                      "*"
+                    );
+                  } catch {
+                    try {
+                      window.parent.postMessage(
+                        {
+                          typ: "console",
+                          prop,
+                          args: args.map((x) => {
+                            try {
+                              window.structuredClone(x);
+                              return x;
+                            } catch {
+                              return {
+                                _MDNPlaySerializedObject: x.toString(),
+                              };
+                            }
+                          }),
+                        },
+                        "*"
+                      );
+                    } catch {
+                      window.parent.postMessage(
+                        {
+                          typ: "console",
+                          prop: "warn",
+                          args: [
+                            "[Playground] Unsupported console message (see browser console)",
+                          ],
+                        },
+                        "*"
+                      );
+                    }
+                  }
+                  target[prop](...args);
+                };
+              }
+              return target[prop];
+            },
+          });
+
+          window.console = consoleProxy;
+          window.addEventListener("error", (e) => console.log(e.error));
+        </script>
+        
+      </head>
+      <body>
+        <div class="content">
+  <h1>Content</h1>
+
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Risus quis varius quam
+    quisque id. Et ligula ullamcorper malesuada proin libero nunc consequat
+    interdum varius. Elit ullamcorper dignissim cras tincidunt lobortis feugiat
+    vivamus at augue.
+  </p>
+
+  <p>
+    Dolor sed viverra ipsum nunc aliquet. Sed sed risus pretium quam vulputate
+    dignissim. Tortor aliquam nulla facilisi cras. A erat nam at lectus urna
+    duis convallis convallis. Nibh ipsum consequat nisl vel pretium lectus.
+    Sagittis aliquam malesuada bibendum arcu vitae elementum. Malesuada bibendum
+    arcu vitae elementum curabitur vitae nunc sed velit.
+  </p>
+
+  <div class="subject animation"></div>
+
+  <p>
+    Adipiscing enim eu turpis egestas pretium aenean pharetra magna ac. Arcu
+    cursus vitae congue mauris rhoncus aenean vel. Sit amet cursus sit amet
+    dictum. Augue neque gravida in fermentum et. Gravida rutrum quisque non
+    tellus orci ac auctor augue mauris. Risus quis varius quam quisque id diam
+    vel quam elementum. Nibh praesent tristique magna sit amet purus gravida
+    quis. Duis ultricies lacus sed turpis tincidunt id aliquet. In egestas erat
+    imperdiet sed euismod nisi. Eget egestas purus viverra accumsan in nisl nisi
+    scelerisque. Netus et malesuada fames ac.
+  </p>
+</div>
+
+        <script type="">
+          ;
+        </script>
+      
+    
+  </body></html>

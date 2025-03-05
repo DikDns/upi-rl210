@@ -1,0 +1,364 @@
+:root {
+  --color: #1e293b;
+  --c1: #fbda61;
+  --c2: #ff5acd;
+  --c3: #2563eb;
+  --gradient: linear-gradient(
+    60deg,
+    var(--c3),
+    var(--c2),
+    var(--c1),
+    var(--c2),
+    var(--c3)
+  );
+  --scale-start: 0.5;
+  --scale-end: 1.001;
+  --hover-offset: 5%;
+
+  /*
+    linear easing generator
+    https://linear-easing-generator.netlify.app/
+  */
+  /* prettier-ignore */
+  --ease-elastic: linear(
+    0, 0.186 2.1%, 0.778 7.2%, 1.027 9.7%, 1.133, 1.212, 1.264, 1.292 15.4%,
+    1.296, 1.294, 1.285, 1.269 18.9%, 1.219 20.9%, 1.062 25.8%, 0.995 28.3%,
+    0.944 31.1%, 0.93, 0.921, 0.92 35.7%, 0.926, 0.94 39.7%, 1.001 47%, 1.014,
+    1.021 52.4%, 1.02 56.4%, 1 65.5%, 0.994 70.7%, 1.001 88.4%, 1
+  );
+  --ease-bounce-out: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@media (prefers-reduced-motion) {
+  :root {
+    --scale-start: var(--scale-end);
+    --ease-elastic: ease-out;
+    --ease-bounce-out: ease-out;
+    --hover-offset: 0;
+  }
+}
+
+body {
+  margin-bottom: 100vh;
+}
+
+/* Main container styles */
+.container {
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+  margin: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding-bottom: 100px;
+  background-color: #f0f0f0;
+}
+
+/* Hero section styles */
+.hero {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.hero-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.25)
+  );
+  backdrop-filter: blur(2px);
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Content section */
+.content-section {
+  padding: 2rem;
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+/* Character grid */
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.character-card {
+  text-align: center;
+}
+
+.in-view-appear {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 10% 50%;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.9;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.character-card img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Typography */
+h1 {
+  font-size: 4rem;
+  color: white;
+  margin: 0;
+}
+
+h2,
+h3 {
+  color: #333;
+  margin-top: 0;
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+
+/* Navigation */
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  justify-content: center;
+  padding: 0 2rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 24px;
+  background-color: #2c3e50;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background-color: #34495e;
+}
+
+.btn.active {
+  background-color: #34495e9f !important;
+  color: hite !important;
+  cursor: default !important;
+}
+
+.btn.active:hover {
+  background-color: none !important;
+  color: white !important;
+}
+
+/* Form Styles */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"],
+.form-group input[type="file"] {
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%;
+  min-width: 250px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2c3e50;
+}
+
+.form-group input[type="file"] {
+  padding: 8px;
+  border: 2px dashed #ddd;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.form-group button[type="submit"] {
+  padding: 12px 24px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.form-group button[type="submit"]:hover {
+  background-color: #34495e;
+}
+
+.form-group p {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.form-group a {
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.form-group a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .nav-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+@supports (animation-timeline: view()) {
+  .box {
+    animation: trigger steps(1) both, fade linear both;
+    animation-timeline: view();
+    animation-range: entry 80% contain 40%;
+  }
+
+  .text {
+    animation: pop-back 300ms var(--ease-bounce-out) forwards;
+  }
+
+  @container style(--animate: true) {
+    .text {
+      animation: pop 600ms var(--ease-elastic) forwards,
+        text-gradient 1s cubic-bezier(0, 0.55, 0.45, 1) forwards;
+    }
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes trigger {
+  to {
+    --animate: true;
+  }
+}
+
+@keyframes pop {
+  from {
+    scale: var(--scale-start);
+  }
+  to {
+    scale: var(--scale-end);
+  }
+}
+
+@keyframes text-gradient {
+  100% {
+    background-position: 150% center;
+  }
+}
+
+@keyframes pop-back {
+  from {
+    scale: var(--scale-end);
+  }
+  to {
+    color: var(--color);
+    scale: var(--scale-start);
+  }
+}
+
+@keyframes wink {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  25%,
+  75% {
+    translate: -100% 0;
+  }
+  50% {
+    translate: -200% 0;
+  }
+}
+
+@keyframes wave {
+  50% {
+    rotate: 10deg;
+  }
+}
+
+@keyframes hover {
+  from,
+  to {
+    translate: 0 calc(var(--hover-offset) * -1);
+  }
+  50% {
+    translate: 0 var(--hover-offset);
+  }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - ONE PIECE</title>
+    <meta name="description" content="Login to ONE PIECE" />
+
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="hero">
+        <div class="hero-overlay box">
+          <h1 class="text-center text">ONE PIECE - Login</h1>
+        </div>
+        <img
+          src="./assets/thumbnail.webp"
+          alt="Login Thumbnail"
+          class="hero-img"
+        />
+      </div>
+
+      <div class="nav-buttons">
+        <a href="./index.html" class="btn">Home</a>
+        <a href="./login.html" class="btn active">Login</a>
+        <a href="./register.html" class="btn">Register</a>
+      </div>
+
+      <div class="content-section">
+        <form action="#" method="post">
+          <div class="form-group">
+            <div class="form-field in-view-appear">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                required
+                minlength="3"
+                maxlength="20"
+                pattern="[A-Za-z0-9]+"
+                title="Username must be between 3-20 characters and can only contain letters and numbers"
+              />
+            </div>
+            <div class="form-field in-view-appear">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                minlength="8"
+                title="Password must be at least 8 characters long"
+              />
+            </div>
+            <button type="submit" class="in-view-appear">Login</button>
+            <p class="in-view-appear">
+              Don't have an account? <a href="./register.html">Register here</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
