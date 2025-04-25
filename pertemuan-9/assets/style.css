@@ -1,0 +1,268 @@
+/* Reset dan variabel */
+:root {
+  --primary-color: #d93c17;
+  --secondary-color: #0283cc;
+  --text-color: #333;
+  --bg-color: #f5f5f5;
+  --nav-height: 64px;
+  --aside-width: 300px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: grid;
+  grid-template-areas:
+    "aside nav"
+    "aside main";
+  grid-template-columns: var(--aside-width) 1fr;
+  grid-template-rows: var(--nav-height) 1fr;
+  min-height: 100vh;
+}
+
+/* Navbar styling */
+nav {
+  grid-area: nav;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--nav-height);
+  z-index: 100;
+}
+
+nav div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+nav button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* Sidebar styling */
+aside.container {
+  grid-area: aside;
+  background-color: white;
+  height: 100%;
+
+  width: var(--aside-width);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.brand {
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary-color);
+  padding: 1rem;
+}
+
+.logo:first-child {
+  background-color: white;
+  border-radius: 50%;
+}
+
+.logo {
+  height: 32px;
+  width: auto;
+}
+
+.user-container {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem 1rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.user-container img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.user-container h6 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.user-container p {
+  color: #777;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.link-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0 1rem;
+}
+
+.link-container a {
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.link-container a:hover {
+  background-color: var(--bg-color);
+}
+
+/* Main content styling */
+main.container {
+  grid-area: main;
+  padding: 2rem;
+}
+
+main section {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.btn {
+  /* make a ghost style button */
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  text-decoration: none;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #c73513;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #01689b;
+}
+
+/* Accordion styling */
+.accordion-container {
+  margin-top: 2rem;
+}
+
+.accordion {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.accordion-trigger {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.accordion-trigger:hover {
+  background-color: var(--bg-color);
+}
+
+.accordion-content {
+  padding: 1rem;
+  background-color: white;
+  display: none;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease-out;
+}
+
+.accordion-content.active {
+  display: block;
+}
+
+.accordion-content > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.accordion-trigger i {
+  transition: transform 0.3s;
+}
+
+.accordion-trigger.active i {
+  transform: rotate(180deg);
+}
